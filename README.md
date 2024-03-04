@@ -4,6 +4,7 @@
 Модели расположены в директории model_repository_GroundingDINO.
 
 ### Сервер
+Веса можно скачать по этой ссылке: https://drive.google.com/file/d/14lXoroSlOCsp1Cwza58GQtxaS8meB5b6/view?usp=sharing
 Чтобы запустить решение для начала стоит запустить triton сервер данной командой:
 `sudo docker run --gpus=all --rm -p 8000:8000 -p 8001:8001 -p 8002:8002 -v ${PWD}/model_repository_GroundingDINO:/models nvcr.io/nvidia/tritonserver:<xx.yy>-py3 tritonserver --model-repository=/models`,
 где xx.yy - версия triton. Я использовал 24.01
@@ -13,11 +14,11 @@
 
 ### Клиент
 Для запуска клиента требуется установить зависимости следующей командой:
-Веса можно скачать по этой ссылке: https://drive.google.com/file/d/14lXoroSlOCsp1Cwza58GQtxaS8meB5b6/view?usp=sharing
 `pip3 install -r requirements.txt`
 И запустить сам клиент:
 `python3 triton_client.py`
 
+Средняя метрика на 6 датасетах: 0.85, среднее расстояние 0.12, среднее время на итерацию с использование 4060TI 0.6 секунд
 ### Возможные проблемы
 Для работы следует установить **CUDA** 12.1 и обязательно проверить прописан ли в PATH путь к ней
 Так же стоит проверить свободны ли порты **8000, 8001, 8002**, если они не открыты и их нельзя открывать для работы, то следует запускать докер конетейнер с сервером, указывая через аргумент -p нужные порты, затем в скрипте triton_client.py изменить следующую строку:
