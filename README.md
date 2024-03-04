@@ -13,6 +13,7 @@
 
 ### Клиент
 Для запуска клиента требуется установить зависимости следующей командой:
+Веса можно скачать по этой ссылке: https://drive.google.com/file/d/14lXoroSlOCsp1Cwza58GQtxaS8meB5b6/view?usp=sharing
 `pip3 install -r requirements.txt`
 И запустить сам клиент:
 `python3 triton_client.py`
