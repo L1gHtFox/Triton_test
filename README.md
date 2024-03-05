@@ -15,6 +15,8 @@
 ### Клиент
 Для запуска клиента требуется установить зависимости следующей командой:
 `pip3 install -r requirements.txt`
+Переходим в директорию GroundingDINO-onnx-export и устанавливаем библиотеку:
+`pip install -e .`
 И запустить сам клиент:
 `python3 triton_client.py`
 
